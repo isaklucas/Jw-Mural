@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request
 from webscraping.web_scraping import get_reunioes
+from flask_cors import CORS
 
 # Criar uma instância de Blueprint
 api_app = Blueprint('api', __name__)
-
+CORS(api_app)
 @api_app.route('/reunioes', methods=['GET'])
 def reunioes():
     # Obtendo os parâmetros da query string na URL
