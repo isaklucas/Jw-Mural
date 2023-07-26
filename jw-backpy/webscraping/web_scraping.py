@@ -21,41 +21,26 @@ class Reuniao:
         self.canticoFinal = canticoFinal
 
 
-def obter_qtd_segundas_feiras(ano, mes):
-    _, dias_no_mes = calendar.monthrange(ano, mes)
-    qtd_segundas_feiras = 0
 
-    for dia in range(1, dias_no_mes + 1):
-        # weekday() retorna o dia da semana, sendo 0 para segunda-feira e 6 para domingo
-        if calendar.weekday(ano, mes, dia) == 0:  # 0 representa segunda-feira
-            qtd_segundas_feiras += 1
-
-    return qtd_segundas_feiras
-
-
-def get_reunioes(urlEnv, nomeEnv, mesEnv):
+def get_reunioes(urlEnv, nomeEnv, semanaEnV):
 
     filename = nomeEnv
     urlEnviada = urlEnv
     reunioes_list = []
 
     # Pega a Semana que está na URL
-    urlSplit = urlEnviada.split("/")
-    semanas = urlSplit[len(urlSplit) - 1]
+    ##urlSplit = urlEnviada.split("/")
+    ##semanas = urlSplit[len(urlSplit) - 1]
 
     # Variaveis utilizadas para os For e montar a Url novamente
-    tamanhoURL = len(urlSplit)
-    x = int(semanas)
-    ## y = obter_qtd_segundas_feiras(datetime.datetime.now().year, mesEnv) + x
+    ##tamanhoURL = len(urlSplit)
+    
+    x = int(semanaEnV)
+    
     y = x +5 
-    base_url = ''
+    base_url = 'https://wol.jw.org/pt/wol/meetings/r5/lp-t/2022/'
     
 
-    for v in range(0, tamanhoURL-1):
-        if v == 0:
-            base_url = base_url + urlSplit[v]
-        else:
-            base_url = base_url + "/" + urlSplit[v]
 
     while x < y:
 
